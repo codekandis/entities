@@ -143,9 +143,17 @@ class AbstractEntityCollection implements EntityCollectionInterface
 	/**
 	 * {@inheritDoc}
 	 */
-	public function jsonSerialize(): array
+	public function toArray(): array
 	{
 		return $this->entities;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public function jsonSerialize(): array
+	{
+		return $this->toArray();
 	}
 
 	/**
