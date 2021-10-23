@@ -2,6 +2,7 @@
 namespace CodeKandis\Entities\Collections;
 
 use ArrayAccess;
+use CodeKandis\Entities\ArrayableInterface;
 use CodeKandis\Entities\EntityInterface;
 use Countable;
 use Iterator;
@@ -12,7 +13,7 @@ use JsonSerializable;
  * @package codekandis/entities
  * @author Christian Ramelow <info@codekandis.net>
  */
-interface EntityCollectionInterface extends Countable, Iterator, ArrayAccess, JsonSerializable
+interface EntityCollectionInterface extends Countable, Iterator, ArrayAccess, ArrayableInterface, JsonSerializable
 {
 	/**
 	 * Gets the count of entities of the collection.
@@ -74,4 +75,10 @@ interface EntityCollectionInterface extends Countable, Iterator, ArrayAccess, Js
 	 * @param mixed $index The index of the entity.
 	 */
 	public function offsetUnset( $index ): void;
+
+	/**
+	 * Converts the collection into an array.
+	 * @return array The converted array.
+	 */
+	public function toArray(): array;
 }
