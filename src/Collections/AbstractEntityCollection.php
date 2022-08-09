@@ -36,7 +36,7 @@ class AbstractEntityCollection implements EntityCollectionInterface
 	 * Stores the internal list of enitites of the collection.
 	 * @var EntityInterface[]
 	 */
-	private array $entities = [];
+	protected array $entities = [];
 
 	/**
 	 * Constructor method.
