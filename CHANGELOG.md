@@ -5,6 +5,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [keep a changelog][xtlink-keep-a-changelog]
 and this project adheres to [Semantic Versioning 2.0.0][xtlink-semantic-versioning].
 
+## [0.2.2] - 2022-08-09
+
+### Changed
+
+* visibility of the collection elements
+
+[0.2.2]: https://github.com/codekandis/entities/compare/0.2.1..0.2.2
+
+---
 ## [0.2.1] - 2022-08-09
 
 ### Fixed
