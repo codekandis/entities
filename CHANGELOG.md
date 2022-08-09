@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [keep a changelog][xtlink-keep-a-changelog]
 and this project adheres to [Semantic Versioning 2.0.0][xtlink-semantic-versioning].
 
+## [0.2.1] - 2022-08-09
+
+### Fixed
+
+* PHPDoc exception annotations
+* exception messages
+
+[0.2.1]: https://github.com/codekandis/entities/compare/0.2.0..0.2.1
+
+---
 ## [0.2.0] - 2021-10-23
 
 ### Added
