@@ -24,7 +24,7 @@ class AbstractEntityCollection implements EntityCollectionInterface
 	 * Represents the error message if a method has not been implemented.
 	 * @var string
 	 */
-	protected const ERROR_METHOD_NOT_IMPLEMENTED = 'The method `%s::%s` has not been not implemented.';
+	protected const ERROR_METHOD_NOT_IMPLEMENTED = 'The method `%s::%s` has not been implemented.';
 
 	/**
 	 * Represents the error message if an entity already exists in the collection.
@@ -114,8 +114,9 @@ class AbstractEntityCollection implements EntityCollectionInterface
 
 	/**
 	 * {@inheritDoc}
+	 * @throws BadMethodCallException The method has not been implemented.
 	 */
-	public function offsetSet( $index, $entities ): void
+	public function offsetSet( $index, $entity ): void
 	{
 		throw new BadMethodCallException(
 			sprintf(
@@ -128,6 +129,7 @@ class AbstractEntityCollection implements EntityCollectionInterface
 
 	/**
 	 * {@inheritDoc}
+	 * @throws BadMethodCallException The method has not been implemented.
 	 */
 	public function offsetUnset( $index ): void
 	{
