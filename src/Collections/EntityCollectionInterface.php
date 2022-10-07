@@ -4,16 +4,18 @@ namespace CodeKandis\Entities\Collections;
 use ArrayAccess;
 use CodeKandis\Entities\ArrayableInterface;
 use CodeKandis\Entities\EntityInterface;
+use CodeKandis\Entities\SerializableArrayInterface;
 use Countable;
 use Iterator;
 use JsonSerializable;
+use ReflectionException;
 
 /**
  * Represents the interface of any collection of entities.
  * @package codekandis/entities
  * @author Christian Ramelow <info@codekandis.net>
  */
-interface EntityCollectionInterface extends Countable, Iterator, ArrayAccess, ArrayableInterface, JsonSerializable
+interface EntityCollectionInterface extends Countable, Iterator, ArrayAccess, ArrayableInterface, SerializableArrayInterface, JsonSerializable
 {
 	/**
 	 * Gets the count of entities of the collection.
@@ -81,4 +83,18 @@ interface EntityCollectionInterface extends Countable, Iterator, ArrayAccess, Ar
 	 * @return array The converted array.
 	 */
 	public function toArray(): array;
+
+	/**
+	 * Converts the collection into a serializable array.
+	 * @return array The serializable array representation of the collection.
+	 * @throws ReflectionException An error occurred during the conversion of an entity.
+	 */
+	public function toSerializableArray(): array;
+
+	/**
+	 * Converts the collection into a JSON serializable array.
+	 * @return array The JSON serializable array.
+	 * @throws ReflectionException An error occured during the conversion of an entity.
+	 */
+	public function jsonSerialize(): array;
 }
