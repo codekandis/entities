@@ -10,7 +10,7 @@ use stdClass;
  * @package codekandis/entities
  * @author Christian Ramelow <info@codekandis.net>
  */
-interface EntityInterface extends JsonSerializable
+interface EntityInterface extends SerializableArrayInterface, JsonSerializable
 {
 	/**
 	 * Converts the entity into an array.
@@ -41,6 +41,13 @@ interface EntityInterface extends JsonSerializable
 	 * @throws ReflectionException An error occurred during the creation of the entity.
 	 */
 	public static function fromObject( object $data ): EntityInterface;
+
+	/**
+	 * Converts the entity into a serializable array.
+	 * @return array The serializable array representation of the entity.
+	 * @throws ReflectionException An error occurred during the conversion of the entity.
+	 */
+	public function toSerializableArray(): array;
 
 	/**
 	 * Converts the entity into a JSON serializable array.

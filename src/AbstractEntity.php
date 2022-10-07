@@ -110,6 +110,27 @@ abstract class AbstractEntity implements EntityInterface
 	/**
 	 * {@inheritDoc}
 	 */
+	public function toSerializableArray(): array
+	{
+		$serializableArray = [];
+		foreach ( $this->toArray() as $index => $value )
+		{
+			if ( $value instanceof SerializableArrayInterface )
+			{
+				$serializableArray[ $index ] = $value->toSerializableArray();
+
+				continue;
+			}
+
+			$serializableArray[ $index ] = $value;
+		}
+
+		return $serializableArray;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
 	public function jsonSerialize(): array
 	{
 		return $this->toArray();

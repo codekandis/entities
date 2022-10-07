@@ -3,6 +3,7 @@ namespace CodeKandis\Entities\Collections;
 
 use BadMethodCallException;
 use CodeKandis\Entities\EntityInterface;
+use CodeKandis\Entities\SerializableArrayInterface;
 use function array_key_exists;
 use function count;
 use function current;
@@ -148,6 +149,27 @@ class AbstractEntityCollection implements EntityCollectionInterface
 	public function toArray(): array
 	{
 		return $this->entities;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	public function toSerializableArray(): array
+	{
+		$serializableArray = [];
+		foreach ( $this->toArray() as $index => $value )
+		{
+			if ( $value instanceof SerializableArrayInterface )
+			{
+				$serializableArray[ $index ] = $value->toSerializableArray();
+
+				continue;
+			}
+
+			$serializableArray[ $index ] = $value;
+		}
+
+		return $serializableArray;
 	}
 
 	/**
